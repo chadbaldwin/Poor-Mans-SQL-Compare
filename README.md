@@ -45,7 +45,7 @@ All of the magic is in `GenerateFiles.ps1`. It has 1 parameter, which is `-Setti
 
 Simply run the script with the supplied settings file path. The script will reach out to each server in parallel, grab a list of all databases that are not replicated, and then generate a file for each database pair.
 
-So if you configured servers `DEV`, `TEST`, `PROD`, and each server has two databases `DBFoo` and `DBBar`. You'll end upw with 4 files:
+So if you configured servers `DEV`, `TEST`, `PROD`, and each server has two databases `DBFoo` and `DBBar`. You will end up with 4 files:
 
 ```plaintext
 DEV_TEST.DBFoo.scmp
