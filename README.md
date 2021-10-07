@@ -56,4 +56,4 @@ TEST_PROD.DBBar.scmp
 
 These files can be opened up in Visual Studio and the comparison can be run.
 
-THere are some settings I've set in the template .scmp file. You can change these if you want, but you need to make sure you retain the replacement values like `%%SOURCE_SERVER%%` and similar. You could probalby do this pretty easily if you use a diff tool. Make your changes to one of the generated files, then diff your changed file with the `FROM_TO.DATABASE.scmp` file, and only apply the changes you want.
+There are some settings I've set in the template .scmp file. You can change these if you want, but you need to make sure you retain the replacement values like `%%SOURCE_SERVER%%` and similar. You could probalby do this pretty easily if you use a diff tool. Make your changes to one of the generated files, then diff your changed file with the `FROM_TO.DATABASE.scmp` file, and only apply the changes you want.
