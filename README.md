@@ -42,3 +42,18 @@ First configure the settings file, which looks like this:
 * Groups - List of server mappings. `source` is the "from" server, and `dest` is the "to". For example, you want to compare `DEV` to `TEST` with the intention of deploy to `TEST`.
 
 All of the magic is in `GenerateFiles.ps1`. It has 1 parameter, which is `-SettingsFilePath`.
+
+Simply run the script with the supplied settings file path. The script will reach out to each server in parallel, grab a list of all databases that are not replicated, and then generate a file for each database pair.
+
+So if you configured servers `DEV`, `TEST`, `PROD`, and each server has two databases `DBFoo` and `DBBar`. You'll end upw with 4 files:
+
+```plaintext
+DEV_TEST.DBFoo.scmp
+DEV_TEST.DBBar.scmp
+TEST_PROD.DBFoo.scmp
+TEST_PROD.DBBar.scmp
+```
+
+These files can be opened up in Visual Studio and the comparison can be run.
+
+THere are some settings I've set in the template .scmp file. You can change these if you want, but you need to make sure you retain the replacement values like `%%SOURCE_SERVER%%` and similar. You could probalby do this pretty easily if you use a diff tool. Make your changes to one of the generated files, then diff your changed file with the `FROM_TO.DATABASE.scmp` file, and only apply the changes you want.
