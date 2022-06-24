@@ -3,7 +3,7 @@ param (
     [Parameter(Mandatory)][string]$SettingsFilePath
 )
 
-$settings = $SettingsFilePath;
+$settings = gc $SettingsFilePath | ConvertFrom-Json;
 
 #lists all databases on the server that are not a replica
 $query = "SELECT DatabaseName = d.[name], ServerName = '{0}'
